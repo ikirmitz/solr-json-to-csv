@@ -1,6 +1,6 @@
 var vows = require('vows'),
     url = require('url');
-    SolrSecurityProxy = require('../solr-json-to-csv.js'),
+    SolrJsonToCsv = require('../solr-json-to-csv.js.old'),
     vowsHelper = require('./vows-helper.js');
 
 if (!process.env.TEST_SOLR) { 
@@ -11,7 +11,7 @@ if (!process.env.TEST_SOLR) {
 // ensure we remove trailing slash
 var solrUrl = url.parse(process.env.TEST_SOLR);
 
-SolrSecurityProxy.start(8009, {
+SolrJsonToCsv.start(8009, {
   backend: { host: solrUrl.hostname, port: solrUrl.port },
   validPaths: [solrUrl.pathname + 'select']
 });

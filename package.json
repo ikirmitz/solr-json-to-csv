@@ -3,15 +3,14 @@
   "description": 
     "reverse proxy to convert json streams from the /export handler to CSV",
   "keywords": ["solr", "", "ajax-solr", "server"],
-  "version": "0.0.5",
-  "author": "Alex Dergachev <alex@evolvingweb.ca>, Ioannis Kirmitzoglou <ikirmitz@imperial.ac.uk>",
+  "version": "0.0.1",
+  "author": "Ioannis Kirmitzoglou <ikirmitz@imperial.ac.uk>",
   "bugs": {
     "url": "https://github.com/ikirmitz/solr-json-to-csv/issues"
   },
   "main": "solr-json-to-csv.js",
   "scripts": {
-    "start": "node solr-json-to-csv.js",
-    "test": "./node_modules/.bin/vows test/test-*.js --spec"
+    "start": "node solr-json-to-csv.js"
   },
   "bin": "./solr-json-to-csv.js",
   "repository": {
@@ -19,12 +18,13 @@
     "url": "https://github.com/ikirmitz/solr-json-to-csv.git"
   },
   "dependencies": {
-    "http-proxy": "1.14.0",
-    "optimist": "0.6.1"
+    "request": "latest",
+    "json-csv": "latest",
+    "JSONStream": "latest",
+    "jsonparse": "https://github.com/ikirmitz/jsonparse/tarball/master"
   },
   "devDependencies": {
-    "request": "2.16.6",
-    "vows": "0.7.0"
+
   },
   "engines": {
     "node": ">=0.6.12"

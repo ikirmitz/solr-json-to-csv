@@ -43,8 +43,8 @@ The valid command-line options are as follows:
 To start the server from your own app, potentially overriding some default options:
 
 ```js
-var SolrSecurityProxy = require('solr-security-proxy');
-SolrSecurityProxy.start(8008, {validPaths: ['/solr/core1/select']});
+var SolrJsonToCsv = require('solr-security-proxy');
+SolrJsonToCsv.start(8008, {validPaths: ['/solr/core1/select']});
 ```
 
 Here are the default options:

@@ -1,7 +1,7 @@
 var vows = require('vows'),
     http = require('http'),
     url = require('url'),
-    SolrSecurityProxy = require('../solr-json-to-csv.js'),
+    SolrJsonToCsv = require('../solr-json-to-csv.js.old'),
     vowsHelper = require('./vows-helper.js');
 
 var startSimpleBackendServer = function(port) {
@@ -21,7 +21,7 @@ var startSimpleBackendServer = function(port) {
 }
 
 startSimpleBackendServer(9090);
-SolrSecurityProxy.start(8008, { backend: { port: 9090}});
+SolrJsonToCsv.start(8008, { backend: { port: 9090}});
 
 var batch = vowsHelper.testProxyBatch('http://localhost:8008/solr/', {mocked: true});
 suite = vows.describe('test-with-mock-backend').addBatch(batch).export(module);
