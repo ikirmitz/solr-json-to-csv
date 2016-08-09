@@ -38,7 +38,7 @@ var validateRequest = function (request, options) {
 var defaultOptions = {
     listenPort: 8000,
     invalidHttpMethods: ['POST'],
-    validPaths: ['/solr/vb_popbio/smpExport', '/solr/vb_popbio/irExport'],
+    validPaths: ['/solr/vb_popbio/smplExport', '/solr/vb_popbio/irExport'],
     invalidParams: ['qt', 'stream'],
     backend: {
         host: 'localhost',
@@ -157,6 +157,7 @@ app.use(errorHandler);
 
 app.listen(options.listenPort);
 
+//TODO: handle errors without status code
 function errorHandler(err, req, res, next) {
     res.status(err.statusCode);
     res.send(err.message);

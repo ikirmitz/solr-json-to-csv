@@ -28,7 +28,7 @@ if (/irExport$/.test(path)) {
             },
             {
                 name: 'exp_bundle_name_s',
-                label: 'Bundle Name',
+                label: 'Record type',
                 quoted: false
             },
             {
@@ -84,8 +84,6 @@ if (/irExport$/.test(path)) {
                 label: 'Locations',
                 quoted: true
             },
-
-
             {
                 name: 'exp_phenotype_type_s',
                 label: 'Phenotype type',
@@ -101,49 +99,41 @@ if (/irExport$/.test(path)) {
                 name: 'exp_protocols_ss',
                 label: 'Protocols',
                 quoted: true
-
             },
             {
                 name: 'exp_concentration_f',
                 label: 'Concentration',
                 quoted: false
-
             },
             {
                 name: 'exp_concentration_unit_s',
                 label: 'Concentration unit',
                 quoted: false
-
             },
             {
                 name: 'exp_duration_f',
                 label: 'Duration',
                 quoted: false
-
             },
             {
                 name: 'exp_duration_unit_s',
                 label: 'Duration unit',
                 quoted: false
-
             },
             {
                 name: 'exp_phenotype_value_f',
                 label: 'Phenotype value',
                 quoted: false
-
             },
             {
                 name: 'exp_phenotype_value_unit_s',
                 label: 'Phenotype value unit',
                 quoted: false
-
             },
             {
                 name: 'exp_phenotype_value_type_s',
                 label: 'Phenotype value type',
                 quoted: false
-
             }
 
         ]
@@ -158,7 +148,7 @@ if (/irExport$/.test(path)) {
             },
             {
                 name: 'exp_bundle_name_s',
-                label: 'Bundle Name',
+                label: 'Record type',
                 quoted: false
             },
             {
