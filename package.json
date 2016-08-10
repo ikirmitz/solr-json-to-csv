@@ -25,7 +25,7 @@
     "JSONStream": "latest",
     "express": "^4.14.0",
     "http-errors": "^1.5.0",
-    "json-csv": "latest",
+    "json-csv": "https://github.com/ikirmitz/json-csv//tarball/master",
     "jsonparse": "https://github.com/ikirmitz/jsonparse/tarball/master",
     "request": "latest"
   },

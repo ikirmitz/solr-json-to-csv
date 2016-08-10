@@ -16,10 +16,12 @@ var stream = jsonStream.parse('*.docs.*');
 
 var options = {};
 var path = process.argv[3];
+var convertFields = process.argv[4];
 // console.log(process.argv[3]);
 
 if (/irExport$/.test(path)) {
     options = {
+        convert: convertFields,
         fields: [
             {
                 name: 'exp_accession_s',
@@ -29,12 +31,12 @@ if (/irExport$/.test(path)) {
             {
                 name: 'exp_bundle_name_s',
                 label: 'Record type',
-                quoted: false
+                quoted: false,
             },
             {
                 name: 'exp_species_s',
                 label: 'Species',
-                quoted: false
+                quoted: false,
             },
             {
                 name: 'exp_sample_type_s',
@@ -140,6 +142,7 @@ if (/irExport$/.test(path)) {
     };
 } else {
     options = {
+        convert: convertFields,
         fields: [
             {
                 name: 'exp_accession_s',
@@ -203,8 +206,6 @@ if (/irExport$/.test(path)) {
         ]
     };
 }
-
-
 
 
 // console.log(process.argv[2]);

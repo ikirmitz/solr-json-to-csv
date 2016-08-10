@@ -21,14 +21,16 @@ var validateRequest = function (request, options) {
         path = parsedUrl.pathname,
         queryParams = Object.keys(parsedUrl.query);
 
-    // console.log(parsedUrl);
+
+     //console.log(JSON.stringify(parsedUrl));
     // console.log(parsedUrl.pathname);
     // console.log(options.validPaths.indexOf(parsedUrl.pathname));
 
     return options.invalidHttpMethods.indexOf(request.method) === -1 &&
-        options.validPaths.indexOf(parsedUrl.pathname) !== -1 &&
+        options.validPaths.indexOf(path) !== -1 &&
         queryParams.every(function (p) {
             var paramPrefix = p.split('.')[0]; // invalidate not just "stream", but "stream.*"
+            //console.log(paramPrefix);
             return options.invalidParams.indexOf(paramPrefix) === -1;
         });
 };
@@ -72,16 +74,20 @@ var options = defaultOptions;
 
 app.get('/solr/vb_popbio/*', function (req, res, next) {
     // console.log(req.url);
-    var parsedUrl = url.parse(req.url, true),
-        path = parsedUrl.pathname;
+    var parsedUrl = url.parse(req.originalUrl, true),
+        path = parsedUrl.pathname,
+        fields = ['all'];
 
+    if (parsedUrl.query.fl) {
+        fields = parsedUrl.query.fl.split(',');
+    }
+    //console.log(fields);
     var fUrl;
 
     if (options.validator(req, options)) {
 
         fUrl = 'http://' + options.backend.host + ':' + options.backend.port + req.url;
-        // console.log(JSON.stringify(parsedUrl));
-        var childProcess = spanwProcess.fork('child.js', [fUrl, path], {silent: true});
+        var childProcess = spanwProcess.fork('child.js', [fUrl, path, fields], {silent: true});
 
     } else {
         return next(createError(403, 'Invalid SOLR request'));
